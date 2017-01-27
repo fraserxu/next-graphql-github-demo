@@ -1,0 +1,23 @@
+{
+  "name": "next-graphql-github-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "apollo-client": "^0.8.0",
+    "cowsay-browser": "^1.1.8",
+    "graphql": "^0.9.1",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "2.0.0-beta.19",
+    "react-apollo": "^0.8.3",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  }
+}
