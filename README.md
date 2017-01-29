@@ -71,19 +71,23 @@ networkInterface.use([{
 
 Create redux store with `initStore.js`
 ```js
+let reduxStore = null
+
 export default (client, initialState) => {
   let store
-  if (!process.browser || !window.REDUX_STORE) {
+  // only create store when it's not avaible in browser or on server side
+  if (!process.browser || !reduxStore) {
     const middleware = createMiddleware(client.middleware())
     store = createStore(getReducer(client), initialState, middleware)
     if (!process.browser) {
       return store
     }
-    window.REDUX_STORE = store
+    reduxStore = store
   }
 
-  return window.REDUX_STORE
+  return reduxStore
 }
+
 ```
 
 #### Hook up apollo-client and redux store into application with `withData` HOC
