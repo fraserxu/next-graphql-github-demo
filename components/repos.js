@@ -4,17 +4,19 @@ import { graphql } from 'react-apollo'
 
 const repos = ({
   data: {
-    user: {
-      repositories: {
-        edges
-      }
-    },
+    user,
     loading
   }
 }) => {
   if (loading) {
     return <div>loading repos...</div>
   }
+
+  const {
+    repositories: {
+      edges
+    }
+  } = user
 
   return (
     <section>

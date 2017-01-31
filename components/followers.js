@@ -4,17 +4,19 @@ import { graphql } from 'react-apollo'
 
 const followers = ({
   data: {
-    user: {
-      followers: {
-        edges
-      }
-    },
+    user,
     loading
   }
 }) => {
   if (loading) {
     return <div>loading followers...</div>
   }
+
+  const {
+    followers: {
+      edges
+    }
+  } = user
 
   return (
     <section>
