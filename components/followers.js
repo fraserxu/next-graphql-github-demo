@@ -2,21 +2,22 @@ import React from 'react'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 
-const repos = (props) => {
+const followers = (props) => {
   const { user: {
-    repositories: {
+    followers: {
       edges
     }
   } } = props.data
 
   return (
     <section>
-      repos...
-      <ul>
-        {edges.map((edge, index) => (
-          <li key={index}>{edge.node.name}</li>
-        ))}
-      </ul>
+      followers...
+      {edges.map((edge, key) => (
+        <li key={key}>
+          {edge.node.login}
+          <img src={edge.node.avatarURL} />
+        </li>
+      ))}
     </section>
   )
 }
@@ -24,10 +25,13 @@ const repos = (props) => {
 const query = gql`
   query AppQuery {
     user (login: "fraserxu") {
-      repositories(first: 100) {
+      followers (first: 100) {
         edges {
           node {
-            name
+            ... on User {
+              login,
+              avatarURL
+            }
           }
         }
       }
@@ -39,4 +43,4 @@ export default graphql(query, {
   props: ({ data }) => ({
     data
   })
-})(repos)
+})(followers)

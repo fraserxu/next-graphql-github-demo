@@ -1,5 +1,12 @@
-import React from 'react'
+import withData from '../lib/withData'
 
-export default () => (
-  <span>How it really works.</span>
+import Header from '../components/header'
+
+const HowPage = () => (
+  <main>
+    <Header />
+    <span>Magic</span>
+  </main>
 )
+
+export default withData(HowPage)
