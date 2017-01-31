@@ -2,16 +2,22 @@ import React from 'react'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 
-const repos = (props) => {
-  const { user: {
-    repositories: {
-      edges
-    }
-  } } = props.data
+const repos = ({
+  data: {
+    user: {
+      repositories: {
+        edges
+      }
+    },
+    loading
+  }
+}) => {
+  if (loading) {
+    return <div>loading repos...</div>
+  }
 
   return (
     <section>
-      repos...
       <ul>
         {edges.map((edge, index) => (
           <li key={index}>{edge.node.name}</li>

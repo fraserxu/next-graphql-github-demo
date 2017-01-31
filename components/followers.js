@@ -2,12 +2,19 @@ import React from 'react'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 
-const followers = (props) => {
-  const { user: {
-    followers: {
-      edges
-    }
-  } } = props.data
+const followers = ({
+  data: {
+    user: {
+      followers: {
+        edges
+      }
+    },
+    loading
+  }
+}) => {
+  if (loading) {
+    return <div>loading followers...</div>
+  }
 
   return (
     <section>

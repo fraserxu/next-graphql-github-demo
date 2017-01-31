@@ -1,6 +1,7 @@
 import React from 'react'
 import cowsay from 'cowsay-browser'
 import Link from 'next/prefetch'
+// import Link from 'next/link'
 
 export default () => (
   <header>
