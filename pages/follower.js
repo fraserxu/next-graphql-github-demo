@@ -1,13 +1,14 @@
 import withData from '../lib/withData'
 
+import App from '../components/app'
 import Header from '../components/header'
 import Followers from '../components/followers'
 
 const FollwerPage = () => (
-  <main>
+  <App>
     <Header />
     <Followers />
-  </main>
+  </App>
 )
 
 export default withData(FollwerPage)

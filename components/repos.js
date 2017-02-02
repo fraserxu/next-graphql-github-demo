@@ -30,8 +30,8 @@ const repos = ({
 }
 
 const query = gql`
-  query AppQuery {
-    user (login: "fraserxu") {
+  query AppQuery($login: String!) {
+    user (login: $login) {
       repositories(first: 100) {
         edges {
           node {
@@ -44,6 +44,11 @@ const query = gql`
 `
 
 export default graphql(query, {
+  options: {
+    variables: {
+      login: 'fraserxu'
+    }
+  },
   props: ({ data }) => ({
     data
   })
