@@ -3,12 +3,13 @@ import cowsay from 'cowsay-browser'
 import Link from 'next/prefetch'
 // import Link from 'next/link'
 
+
 export default () => (
   <header>
     <nav>
       <ul>
         <li>
-          <Link href='/'>
+          <Link href='/repo'>
             <a>Repos</a>
           </Link>
         </li>

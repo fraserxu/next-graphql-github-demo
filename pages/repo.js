@@ -1,13 +1,14 @@
 import withData from '../lib/withData'
+
 import App from '../components/app'
 import Header from '../components/header'
-import Login from '../components/login'
+import Repos from '../components/repos'
 
-const HomePage = () => (
+const RepoPage = () => (
   <App>
     <Header />
-    <Login />
+    <Repos />
   </App>
 )
 
-export default withData(HomePage)
+export default withData(RepoPage)
